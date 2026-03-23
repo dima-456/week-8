@@ -3,6 +3,7 @@
 :root {
   --persimmon: #F65009;
   --periwinkle: #EBF2FF;
+  --periwinkle-fade: rgba(235, 242, 255, 0.5);
   --french-blue: #3D3B8E;
   --yellow: #FABB3D;
 }
@@ -10,6 +11,52 @@
 body {
     background: var(--periwinkle);
     color: var(--french-blue);
+}
+
+nav {
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid var(--persimmon);
+    background: var(--periwinkle-fade);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+}
+
+nav h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+} 
+
+nav div.links {
+    font-size: 15px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav div.links a {
+    text-decoration: none;
+    color: var(--french-blue);
+    transition: 1s all;
+}
+nav div.links a:hover {
+    text-decoration: none;
+    color: var(--persimmon);
+    transition: 1s all;
 }
 
 ::selection {
@@ -49,6 +96,7 @@ div.hero-wrapper h5 {
     letter-spacing: 2px;
     text-align: justify;
     margin-bottom: 0px;
+    color: var(--persimmon);
 }
 
 div.hero-wrapper h2 {
@@ -56,6 +104,7 @@ div.hero-wrapper h2 {
     font-weight: 300;
     line-height: 1.4;
     margin-top: 40px;
+    text-wrap: pretty;
 }
 
 div.hero-wrapper div.flex {
@@ -67,8 +116,8 @@ div.hero-wrapper div.flex {
 }
 
 footer {
-    background: var(--persimmon);
-    color: var(--periwinkle);
+    border-top: 1px solid var(--persimmon);
+    color: var(--french-blue);
     width: 100%;
     padding-bottom: 5%;
     margin-top: 100px;
@@ -90,10 +139,14 @@ footer div.flex h5 {
     margin-bottom: 0;
 }
 
+footer div.flex h5.name {
+    font-weight: 400;
+}
+
 div.hero-wrapper div.flex div.line {
     background-color: var(--persimmon);
     height: 1px;
-    width: 60%;
+    width: 35%;
     margin-top: 0;
 }
 
@@ -105,6 +158,7 @@ h1 {
     line-height: 0.9;
     margin-bottom: 100px;
     padding-bottom: 50px;
+    padding-top: 25px;
     border-bottom: 1px solid var(--persimmon);
 }
 
@@ -123,8 +177,35 @@ section {
     margin-top: 50px;
 }
 
+section.course {
+    border-top: 2px solid var(--persimmon);
+    padding-top: 75px;
+    margin-top: 75px;
+}
+
+section.course.first {
+    border-top: 0px solid var(--persimmon);
+    padding-top: 75px;
+    margin-top: 75px;
+}
+
+h5 span.assignment {
+    font-weight: 600;
+    display: block;
+    margin-top: 25px;
+}
+
 div.title {
     font-weight: 600;
+}
+
+section {
+    text-wrap: pretty;
+}
+
+div.assignment {
+    padding: 1.5em;
+    border: 1px solid var(--persimmon)
 }
 
 section p a {
@@ -138,6 +219,7 @@ section p a {
 
 section.weekly p a {
     display: inline;
+    overflow: hidden;
     padding: 5px 10px;
     box-shadow: none;
     border: 1px solid var(--persimmon)
@@ -166,8 +248,21 @@ section h5 {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 10px;
+    /* color: var(--persimmon); */
+}
+
+section h3 {
+    font-size: 40px;
+    font-weight: 300;
+}
+
+section h4 {
+    margin-bottom: 20px;
+}
+
+h5 span.persimmon {
     color: var(--persimmon);
 }
 
@@ -178,6 +273,11 @@ div.row {
     line-height: 1.3;
 }
 
+iframe {
+    width: 100%;
+    margin-top: 1.5em;
+}
+
 div.row p {
     margin-bottom: 0;
 }
@@ -186,8 +286,17 @@ div.flex-grade {
     margin-top: 0px;
 }
 
+div.list {
+    margin-top: 0;
+}
+
+div.list.multi-column {
+    columns: 2;
+}
+
 div.list p {
     position: relative;
+    margin-bottom: 0.25em;
 }
 
 div.list p a {
@@ -195,10 +304,16 @@ div.list p a {
 }
 
 div.list p:before {
-    content: '•';
+    content: '-';
     position: absolute;
-    left: -15px;
+    left: -10px;
     top: 0px;
+}
+
+pre.prettyprint {
+    background-color: #DAE2F2;
+    padding: 10px;
+    border: 0px solid transparent;
 }
 
 @media only screen and (min-width: 700px) {
@@ -212,8 +327,11 @@ div.list p:before {
     div.hero-wrapper h5 {
         font-size: 25px;
     }
+    div.list p:before { 
+        left: -15px;
+    }
     div.hero-wrapper div.flex div.line {
-        width: 75%;
+        width: 55%;
         height: 1.5px;
     }
     div.hero-wrapper h2 {
@@ -227,5 +345,12 @@ div.list p:before {
     }
     footer div.flex {
         width: 95%;
+    }
+    div.week-links h5 {
+        font-size: 16px;
+    }
+    iframe {
+        width: 140%;
+        margin-left: -20%;
     }
 }
